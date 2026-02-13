@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Navigation (dark) */
+  --nav-bg: #050505;
+  --nav-text: #f7f7fb;
+  --nav-muted: #a3a3b2;
+
+  /* Content (light) */
+  --content-bg: #fafafa;
+  --content-text: #1a1a2e;
+  --content-muted: #6b7280;
+
+  /* Accents */
+  --accent-primary: #2563eb;
+  --accent-growth: #10b981;
+  --accent-decline: #ef4444;
+  --accent-highlight: #f59e0b;
+
+  /* Surfaces */
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-border: rgba(255, 255, 255, 0.10);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-nav-bg: var(--nav-bg);
+  --color-nav-text: var(--nav-text);
+  --color-nav-muted: var(--nav-muted);
+  --color-content-bg: var(--content-bg);
+  --color-content-text: var(--content-text);
+  --color-content-muted: var(--content-muted);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-growth: var(--accent-growth);
+  --color-accent-decline: var(--accent-decline);
+  --color-accent-highlight: var(--accent-highlight);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* Dark sections (intro, navigation, explore CTA) */
+.section-dark {
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+}
+
+/* Light sections (content, charts, data) */
+.section-light {
+  background-color: var(--content-bg);
+  color: var(--content-text);
+}
+
+/* Leaflet overrides for dark/light contexts */
+.leaflet-container {
+  background: var(--content-bg);
+  font-family: var(--font-geist-sans);
+}
+
+.leaflet-control-zoom a {
+  background: var(--nav-bg) !important;
+  color: var(--nav-text) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(250, 250, 250, 0.8) !important;
+  font-size: 10px !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nav-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nav-muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto;
+  }
 }

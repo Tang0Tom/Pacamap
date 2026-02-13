@@ -1,0 +1,82 @@
+[
+  {
+    "sector": "agriculture",
+    "label": "Agriculture",
+    "change": -36.4,
+    "absoluteChange": -20000,
+    "currentValue": 35000,
+    "previousValue": 55000,
+    "trend": [
+      { "year": 2008, "value": 55000 },
+      { "year": 2012, "value": 49000 },
+      { "year": 2016, "value": 43000 },
+      { "year": 2020, "value": 38000 },
+      { "year": 2022, "value": 35000 }
+    ],
+    "topDepartments": [
+      { "code": "84", "name": "Vaucluse", "change": -32.0 },
+      { "code": "13", "name": "Bouches-du-Rhône", "change": -38.5 },
+      { "code": "83", "name": "Var", "change": -35.0 }
+    ]
+  },
+  {
+    "sector": "industrie",
+    "label": "Industrie manufacturière",
+    "change": -22.3,
+    "absoluteChange": -36800,
+    "currentValue": 128200,
+    "previousValue": 165000,
+    "trend": [
+      { "year": 2008, "value": 165000 },
+      { "year": 2012, "value": 148000 },
+      { "year": 2016, "value": 135000 },
+      { "year": 2020, "value": 125000 },
+      { "year": 2022, "value": 128200 }
+    ],
+    "topDepartments": [
+      { "code": "13", "name": "Bouches-du-Rhône", "change": -25.1 },
+      { "code": "06", "name": "Alpes-Maritimes", "change": -20.8 },
+      { "code": "84", "name": "Vaucluse", "change": -19.2 }
+    ]
+  },
+  {
+    "sector": "construction",
+    "label": "Construction & BTP",
+    "change": -17.6,
+    "absoluteChange": -25500,
+    "currentValue": 119500,
+    "previousValue": 145000,
+    "trend": [
+      { "year": 2008, "value": 145000 },
+      { "year": 2012, "value": 130000 },
+      { "year": 2016, "value": 118000 },
+      { "year": 2020, "value": 115000 },
+      { "year": 2022, "value": 119500 }
+    ],
+    "topDepartments": [
+      { "code": "06", "name": "Alpes-Maritimes", "change": -22.0 },
+      { "code": "83", "name": "Var", "change": -15.3 },
+      { "code": "13", "name": "Bouches-du-Rhône", "change": -18.0 }
+    ]
+  },
+  {
+    "sector": "commerce",
+    "label": "Commerce & Transport",
+    "change": -13.4,
+    "absoluteChange": -45400,
+    "currentValue": 294600,
+    "previousValue": 340000,
+    "trend": [
+      { "year": 2008, "value": 340000 },
+      { "year": 2012, "value": 320000 },
+      { "year": 2016, "value": 310000 },
+      { "year": 2020, "value": 280000 },
+      { "year": 2022, "value": 294600 }
+    ],
+    "topDepartments": [
+      { "code": "04", "name": "Alpes-de-Haute-Provence", "change": -18.5 },
+      { "code": "84", "name": "Vaucluse", "change": -15.2 },
+      { "code": "05", "name": "Hautes-Alpes", "change": -12.0 }
+    ]
+  }
+]

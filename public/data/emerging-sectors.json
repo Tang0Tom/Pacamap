@@ -1,0 +1,42 @@
+[
+  {
+    "sector": "services",
+    "label": "Services aux entreprises & numérique",
+    "change": 21.7,
+    "absoluteChange": 125600,
+    "currentValue": 705600,
+    "previousValue": 580000,
+    "trend": [
+      { "year": 2008, "value": 580000 },
+      { "year": 2012, "value": 620000 },
+      { "year": 2016, "value": 670000 },
+      { "year": 2020, "value": 660000 },
+      { "year": 2022, "value": 705600 }
+    ],
+    "topDepartments": [
+      { "code": "06", "name": "Alpes-Maritimes", "change": 28.5 },
+      { "code": "13", "name": "Bouches-du-Rhône", "change": 22.1 },
+      { "code": "83", "name": "Var", "change": 18.0 }
+    ]
+  },
+  {
+    "sector": "public",
+    "label": "Santé & action sociale",
+    "change": 12.0,
+    "absoluteChange": 49100,
+    "currentValue": 459100,
+    "previousValue": 410000,
+    "trend": [
+      { "year": 2008, "value": 410000 },
+      { "year": 2012, "value": 430000 },
+      { "year": 2016, "value": 445000 },
+      { "year": 2020, "value": 460000 },
+      { "year": 2022, "value": 459100 }
+    ],
+    "topDepartments": [
+      { "code": "13", "name": "Bouches-du-Rhône", "change": 14.2 },
+      { "code": "83", "name": "Var", "change": 12.8 },
+      { "code": "06", "name": "Alpes-Maritimes", "change": 10.5 }
+    ]
+  }
+]

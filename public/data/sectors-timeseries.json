@@ -1,0 +1,86 @@
+[
+  {
+    "sector": "services",
+    "label": "Services",
+    "data": [
+      { "year": 2008, "value": 580000 },
+      { "year": 2010, "value": 595000 },
+      { "year": 2012, "value": 620000 },
+      { "year": 2014, "value": 645000 },
+      { "year": 2016, "value": 670000 },
+      { "year": 2018, "value": 695000 },
+      { "year": 2020, "value": 660000 },
+      { "year": 2022, "value": 705600 }
+    ]
+  },
+  {
+    "sector": "public",
+    "label": "Public & Santé",
+    "data": [
+      { "year": 2008, "value": 410000 },
+      { "year": 2010, "value": 420000 },
+      { "year": 2012, "value": 430000 },
+      { "year": 2014, "value": 440000 },
+      { "year": 2016, "value": 445000 },
+      { "year": 2018, "value": 450000 },
+      { "year": 2020, "value": 460000 },
+      { "year": 2022, "value": 459100 }
+    ]
+  },
+  {
+    "sector": "commerce",
+    "label": "Commerce & Transport",
+    "data": [
+      { "year": 2008, "value": 340000 },
+      { "year": 2010, "value": 330000 },
+      { "year": 2012, "value": 320000 },
+      { "year": 2014, "value": 315000 },
+      { "year": 2016, "value": 310000 },
+      { "year": 2018, "value": 305000 },
+      { "year": 2020, "value": 280000 },
+      { "year": 2022, "value": 294600 }
+    ]
+  },
+  {
+    "sector": "construction",
+    "label": "Construction",
+    "data": [
+      { "year": 2008, "value": 145000 },
+      { "year": 2010, "value": 138000 },
+      { "year": 2012, "value": 130000 },
+      { "year": 2014, "value": 122000 },
+      { "year": 2016, "value": 118000 },
+      { "year": 2018, "value": 120000 },
+      { "year": 2020, "value": 115000 },
+      { "year": 2022, "value": 119500 }
+    ]
+  },
+  {
+    "sector": "industrie",
+    "label": "Industrie",
+    "data": [
+      { "year": 2008, "value": 165000 },
+      { "year": 2010, "value": 155000 },
+      { "year": 2012, "value": 148000 },
+      { "year": 2014, "value": 140000 },
+      { "year": 2016, "value": 135000 },
+      { "year": 2018, "value": 132000 },
+      { "year": 2020, "value": 125000 },
+      { "year": 2022, "value": 128200 }
+    ]
+  },
+  {
+    "sector": "agriculture",
+    "label": "Agriculture",
+    "data": [
+      { "year": 2008, "value": 55000 },
+      { "year": 2010, "value": 52000 },
+      { "year": 2012, "value": 49000 },
+      { "year": 2014, "value": 46000 },
+      { "year": 2016, "value": 43000 },
+      { "year": 2018, "value": 41000 },
+      { "year": 2020, "value": 38000 },
+      { "year": 2022, "value": 35000 }
+    ]
+  }
+]

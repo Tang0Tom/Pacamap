@@ -1,0 +1,87 @@
+{
+  "totalEmployment": 1842000,
+  "totalEstablishments": 245000,
+  "population": 5098000,
+  "unemploymentRate": 8.9,
+  "year": 2022,
+  "departments": [
+    {
+      "code": "04",
+      "name": "Alpes-de-Haute-Provence",
+      "employment": 42000,
+      "establishments": 8500,
+      "population": 165000,
+      "unemploymentRate": 10.2,
+      "topSectors": [
+        { "sector": "services", "label": "Services", "value": 14200, "percentage": 33.8 },
+        { "sector": "public", "label": "Public & Santé", "value": 12600, "percentage": 30.0 },
+        { "sector": "commerce", "label": "Commerce & Transport", "value": 7500, "percentage": 17.9 }
+      ]
+    },
+    {
+      "code": "05",
+      "name": "Hautes-Alpes",
+      "employment": 38000,
+      "establishments": 7800,
+      "population": 142000,
+      "unemploymentRate": 7.8,
+      "topSectors": [
+        { "sector": "services", "label": "Services", "value": 13300, "percentage": 35.0 },
+        { "sector": "public", "label": "Public & Santé", "value": 11400, "percentage": 30.0 },
+        { "sector": "commerce", "label": "Commerce & Transport", "value": 6100, "percentage": 16.1 }
+      ]
+    },
+    {
+      "code": "06",
+      "name": "Alpes-Maritimes",
+      "employment": 412000,
+      "establishments": 52000,
+      "population": 1083000,
+      "unemploymentRate": 8.4,
+      "topSectors": [
+        { "sector": "services", "label": "Services", "value": 169000, "percentage": 41.0 },
+        { "sector": "commerce", "label": "Commerce & Transport", "value": 78000, "percentage": 18.9 },
+        { "sector": "public", "label": "Public & Santé", "value": 99000, "percentage": 24.0 }
+      ]
+    },
+    {
+      "code": "13",
+      "name": "Bouches-du-Rhône",
+      "employment": 742000,
+      "establishments": 92000,
+      "population": 2043000,
+      "unemploymentRate": 9.8,
+      "topSectors": [
+        { "sector": "services", "label": "Services", "value": 289000, "percentage": 38.9 },
+        { "sector": "public", "label": "Public & Santé", "value": 178000, "percentage": 24.0 },
+        { "sector": "commerce", "label": "Commerce & Transport", "value": 141000, "percentage": 19.0 }
+      ]
+    },
+    {
+      "code": "83",
+      "name": "Var",
+      "employment": 310000,
+      "establishments": 45000,
+      "population": 1076000,
+      "unemploymentRate": 9.1,
+      "topSectors": [
+        { "sector": "services", "label": "Services", "value": 117800, "percentage": 38.0 },
+        { "sector": "public", "label": "Public & Santé", "value": 80600, "percentage": 26.0 },
+        { "sector": "commerce", "label": "Commerce & Transport", "value": 62000, "percentage": 20.0 }
+      ]
+    },
+    {
+      "code": "84",
+      "name": "Vaucluse",
+      "employment": 298000,
+      "establishments": 39700,
+      "population": 559000,
+      "unemploymentRate": 10.5,
+      "topSectors": [
+        { "sector": "services", "label": "Services", "value": 101300, "percentage": 34.0 },
+        { "sector": "public", "label": "Public & Santé", "value": 77500, "percentage": 26.0 },
+        { "sector": "agriculture", "label": "Agriculture", "value": 26800, "percentage": 9.0 }
+      ]
+    }
+  ]
+}
