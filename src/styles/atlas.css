@@ -1,0 +1,207 @@
+/* Atlas Géographique Vintage Moderne - Version 1 */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+:root {
+  /* Palette Atlas Vintage */
+  --atlas-paper: #F5F1E8;
+  --atlas-ink: #2C2416;
+  --atlas-sepia: #8B6F47;
+  --atlas-ochre: #C19A6B;
+  --atlas-burgundy: #6B2737;
+  --atlas-navy: #1E3A5F;
+  --atlas-teal: #2F5D62;
+  --atlas-gold: #B8860B;
+
+  /* Typography */
+  --font-atlas-display: 'Playfair Display', serif;
+  --font-atlas-body: 'Crimson Text', serif;
+  --font-atlas-mono: 'IBM Plex Mono', monospace;
+}
+
+/* Background texture papier ancien */
+.atlas-page {
+  background-color: var(--atlas-paper);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 111, 71, 0.02) 2px,
+      rgba(139, 111, 71, 0.02) 4px
+    ),
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(193, 154, 107, 0.05) 0%,
+      transparent 50%
+    );
+  position: relative;
+}
+
+/* Texture grain vintage */
+.atlas-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/* Typographie Atlas */
+.atlas-heading {
+  font-family: var(--font-atlas-display);
+  color: var(--atlas-ink);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.atlas-subheading {
+  font-family: var(--font-atlas-display);
+  color: var(--atlas-burgundy);
+  font-weight: 700;
+  font-style: italic;
+}
+
+.atlas-body {
+  font-family: var(--font-atlas-body);
+  color: var(--atlas-ink);
+  line-height: 1.8;
+  font-size: 1.125rem;
+}
+
+.atlas-numero {
+  font-family: var(--font-atlas-mono);
+  color: var(--atlas-sepia);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* Cartes ornementales */
+.atlas-card {
+  background: linear-gradient(135deg, #FFF 0%, #F9F6F0 100%);
+  border: 2px solid var(--atlas-sepia);
+  border-radius: 2px;
+  box-shadow:
+    0 2px 8px rgba(44, 36, 22, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+/* Coins décoratifs */
+.atlas-card::before,
+.atlas-card::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--atlas-gold);
+}
+
+.atlas-card::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.atlas-card::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Lignes ornementales */
+.atlas-divider {
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--atlas-ochre) 20%,
+    var(--atlas-burgundy) 50%,
+    var(--atlas-ochre) 80%,
+    transparent 100%
+  );
+  position: relative;
+}
+
+.atlas-divider::before {
+  content: '◆';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--atlas-paper);
+  padding: 0 12px;
+  color: var(--atlas-burgundy);
+  font-size: 0.75rem;
+}
+
+/* Numéros de chapitre */
+.atlas-chapter-numero {
+  font-family: var(--font-atlas-display);
+  font-size: 8rem;
+  font-weight: 900;
+  color: var(--atlas-ochre);
+  opacity: 0.15;
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  line-height: 1;
+  z-index: 0;
+  user-select: none;
+}
+
+/* Selection */
+.atlas-page ::selection {
+  background-color: var(--atlas-burgundy);
+  color: var(--atlas-paper);
+}
+
+/* Boutons style vintage */
+.atlas-button {
+  font-family: var(--font-atlas-body);
+  font-weight: 600;
+  color: var(--atlas-paper);
+  background: linear-gradient(135deg, var(--atlas-burgundy) 0%, var(--atlas-navy) 100%);
+  border: 2px solid var(--atlas-gold);
+  padding: 12px 32px;
+  border-radius: 2px;
+  transition: all 400ms ease;
+  box-shadow: 0 4px 12px rgba(107, 39, 55, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+}
+
+.atlas-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(107, 39, 55, 0.4);
+  border-color: var(--atlas-ochre);
+}
+
+/* Scrollbar vintage */
+.atlas-page ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.atlas-page ::-webkit-scrollbar-track {
+  background: var(--atlas-paper);
+  border-left: 1px solid var(--atlas-sepia);
+}
+
+.atlas-page ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--atlas-burgundy), var(--atlas-navy));
+  border-radius: 5px;
+  border: 1px solid var(--atlas-gold);
+}
+
+.atlas-page ::-webkit-scrollbar-thumb:hover {
+  background: var(--atlas-gold);
+}
