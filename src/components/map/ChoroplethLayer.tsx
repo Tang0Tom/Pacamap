@@ -30,10 +30,10 @@ export default function ChoroplethLayer({
     const value = valueAccessor(feature as unknown as GeoJSONFeature);
     return {
       fillColor: getChoroplethColor(value, min, max, scale),
-      weight: 1.5,
-      opacity: 1,
-      color: "#ffffff",
-      fillOpacity: 0.8,
+      weight: 1,
+      opacity: 0.5,
+      color: "#0A2540", // Bordure bleu méditerranéen foncé
+      fillOpacity: 0.75,
     };
   };
 
@@ -42,9 +42,10 @@ export default function ChoroplethLayer({
       mouseover: (e) => {
         const target = e.target;
         target.setStyle({
-          weight: 3,
-          color: "#2563eb",
-          fillOpacity: 0.9,
+          weight: 2.5,
+          color: "#0E7490", // Cyan méditerranéen
+          fillOpacity: 0.95,
+          opacity: 1,
         });
         target.bringToFront();
         onFeatureHover?.(feature as unknown as GeoJSONFeature);

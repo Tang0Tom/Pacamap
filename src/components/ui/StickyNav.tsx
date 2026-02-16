@@ -33,7 +33,7 @@ export default function StickyNav() {
   }, []);
 
   return (
-    <nav className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-3">
+    <nav className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-4">
       {SECTION_TITLES.map((title, i) => (
         <a
           key={i}
@@ -46,20 +46,23 @@ export default function StickyNav() {
         >
           <span
             className={cn(
-              "text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap",
-              activeSection === i ? "text-accent-primary" : "text-nav-muted"
+              "text-xs font-medium tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap px-3 py-1.5 rounded-md",
+              activeSection === i
+                ? "text-accent-primary opacity-100 bg-accent-primary/5 backdrop-blur-sm"
+                : "text-content-muted group-hover:bg-content-text/5"
             )}
           >
             {title}
           </span>
           <motion.div
             className={cn(
-              "w-2.5 h-2.5 rounded-full border-2 transition-colors",
+              "w-3 h-3 rounded-full border-2 transition-all duration-300 shadow-sm",
               activeSection === i
-                ? "bg-accent-primary border-accent-primary"
-                : "bg-transparent border-nav-muted"
+                ? "bg-accent-primary border-accent-primary shadow-accent-primary/30 shadow-lg"
+                : "bg-transparent border-content-muted/40 group-hover:border-accent-primary/50"
             )}
-            animate={activeSection === i ? { scale: 1.2 } : { scale: 1 }}
+            animate={activeSection === i ? { scale: 1.3 } : { scale: 1 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
           />
         </a>
       ))}

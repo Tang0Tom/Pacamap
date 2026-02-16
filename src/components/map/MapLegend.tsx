@@ -22,19 +22,21 @@ export default function MapLegend({
   return (
     <div
       className={cn(
-        "bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-sm border border-gray-100",
+        "bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-lg border border-slate-200/60",
         className
       )}
     >
-      <p className="text-xs font-semibold text-content-text mb-2">{title}</p>
-      <div className="flex gap-0.5">
+      <p className="text-xs font-bold text-content-text mb-3 tracking-wide uppercase">
+        {title}
+      </p>
+      <div className="flex gap-1">
         {scale.map((color, i) => (
-          <div key={i} className="flex-1">
+          <div key={i} className="flex-1 group">
             <div
-              className="h-3 rounded-sm"
+              className="h-4 rounded-md shadow-sm transition-transform group-hover:scale-105"
               style={{ backgroundColor: color }}
             />
-            <p className="text-[10px] text-content-muted mt-1 font-mono">
+            <p className="text-[10px] text-content-muted mt-1.5 font-mono text-center">
               {Math.round(min + step * i).toLocaleString("fr-FR")}
               {unit}
             </p>

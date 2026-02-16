@@ -26,22 +26,25 @@ const ICON_MAP = {
 
 const TYPE_STYLES = {
   positive: {
-    border: "border-l-4 border-l-emerald-500",
-    iconBg: "bg-emerald-50",
-    iconColor: "text-emerald-600",
-    titleColor: "text-emerald-900",
+    border: "border-l-[3px] border-l-orange-600",
+    iconBg: "bg-gradient-to-br from-orange-50 to-amber-50",
+    iconColor: "text-orange-600",
+    titleColor: "text-orange-900",
+    glow: "shadow-orange-500/10",
   },
   negative: {
-    border: "border-l-4 border-l-red-500",
-    iconBg: "bg-red-50",
-    iconColor: "text-red-600",
-    titleColor: "text-red-900",
+    border: "border-l-[3px] border-l-indigo-500",
+    iconBg: "bg-gradient-to-br from-indigo-50 to-purple-50",
+    iconColor: "text-indigo-600",
+    titleColor: "text-indigo-900",
+    glow: "shadow-indigo-500/10",
   },
   neutral: {
-    border: "border-l-4 border-l-blue-500",
-    iconBg: "bg-blue-50",
-    iconColor: "text-blue-600",
-    titleColor: "text-blue-900",
+    border: "border-l-[3px] border-l-cyan-600",
+    iconBg: "bg-gradient-to-br from-cyan-50 to-sky-50",
+    iconColor: "text-cyan-700",
+    titleColor: "text-cyan-900",
+    glow: "shadow-cyan-500/10",
   },
 };
 
@@ -52,20 +55,21 @@ export default function InsightCard({ insight, className }: InsightCardProps) {
   return (
     <div
       className={cn(
-        "rounded-lg bg-white shadow-sm border border-gray-100 p-4",
+        "rounded-xl bg-white/80 backdrop-blur-sm shadow-lg border border-slate-200/60 p-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5",
         styles.border,
+        styles.glow,
         className
       )}
     >
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-3.5">
         {/* Icône */}
         <div
           className={cn(
-            "rounded-full p-2 shrink-0",
+            "rounded-xl p-2.5 shrink-0 shadow-sm",
             styles.iconBg
           )}
         >
-          <Icon className={cn("w-5 h-5", styles.iconColor)} />
+          <Icon className={cn("w-5 h-5", styles.iconColor)} strokeWidth={2.5} />
         </div>
 
         {/* Contenu */}

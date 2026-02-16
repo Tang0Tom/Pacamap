@@ -19,7 +19,7 @@ export default function Section({
   id,
   theme = "light",
   className,
-  height = "h-[300vh]",
+  height = "h-[120vh]", // Réduit de 300vh à 120vh pour moins de scroll
   fadeIn = true,
   fadeOut = true,
 }: SectionProps) {

@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* Navigation (dark) */
-  --nav-bg: #050505;
-  --nav-text: #f7f7fb;
-  --nav-muted: #a3a3b2;
+  /* Navigation (dark) - Bleu Méditerranéen */
+  --nav-bg: #0A2540;
+  --nav-text: #FFFBEB;
+  --nav-muted: #94A3B8;
 
-  /* Content (light) */
-  --content-bg: #fafafa;
-  --content-text: #1a1a2e;
-  --content-muted: #6b7280;
+  /* Content (light) - Crème chaud */
+  --content-bg: #FFFBEB;
+  --content-text: #1E293B;
+  --content-muted: #64748B;
 
-  /* Accents */
-  --accent-primary: #2563eb;
-  --accent-growth: #10b981;
-  --accent-decline: #ef4444;
-  --accent-highlight: #f59e0b;
+  /* Accents - Palette méditerranéenne */
+  --accent-primary: #0E7490;
+  --accent-growth: #EA580C;
+  --accent-decline: #6366F1;
+  --accent-highlight: #D97706;
 
   /* Surfaces */
-  --surface: rgba(255, 255, 255, 0.04);
-  --surface-border: rgba(255, 255, 255, 0.10);
+  --surface: rgba(255, 251, 235, 0.06);
+  --surface-border: rgba(255, 251, 235, 0.12);
 }
 
 @theme inline {
@@ -47,8 +47,29 @@ body {
 }
 
 ::selection {
-  background-color: #2563eb;
-  color: #fff;
+  background-color: #0E7490;
+  color: #FFFBEB;
+}
+
+/* Texture subtile de fond pour ambiance carte ancienne */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.015;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 4px
+    );
 }
 
 * {
