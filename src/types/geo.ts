@@ -44,9 +44,14 @@ export interface MapViewState {
   zoom: number;
 }
 
+// Centre de PACA avec vue contextuelle
 export const PACA_CENTER: [number, number] = [43.935, 6.0];
+
+// Bounds élargis pour montrer PACA dans son contexte régional
 export const PACA_BOUNDS: [[number, number], [number, number]] = [
-  [42.98, 4.23],
-  [45.12, 7.72],
+  [42.5, 4.0],    // Sud-Ouest (avec marge Méditerranée)
+  [45.5, 8.0],    // Nord-Est (avec marge Alpes/Italie)
 ];
-export const PACA_DEFAULT_ZOOM = 8;
+
+// Zoom réduit pour vue d'ensemble (pas trop zoomé)
+export const PACA_DEFAULT_ZOOM = 7.5;

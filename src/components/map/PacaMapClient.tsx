@@ -25,8 +25,9 @@ export default function PacaMapClient({
       center={PACA_CENTER}
       zoom={zoom}
       maxBounds={PACA_BOUNDS}
-      minZoom={7}
-      maxZoom={12}
+      boundsOptions={{ padding: [30, 30] }} // Padding pour ne pas couper les bords
+      minZoom={6.5} // Permet de dézoomer légèrement plus
+      maxZoom={11}
       scrollWheelZoom={interactive}
       dragging={interactive}
       zoomControl={interactive}

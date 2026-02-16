@@ -1,20 +1,29 @@
 "use client";
 
+import { useState } from "react";
 import Section from "./Section";
 import TransitionWrapper from "@/components/ui/TransitionWrapper";
 import GrowthChart from "@/components/charts/GrowthChart";
 import TimeSeriesChart from "@/components/charts/TimeSeriesChart";
 import Card from "@/components/ui/Card";
 import InsightCard from "@/components/story/InsightCard";
+import DetailedAnalysisPanel from "./DetailedAnalysisPanel";
 import { usePacaData } from "@/hooks/usePacaData";
-import type { SectorChange } from "@/types/data";
+import type { SectorChange, DepartmentComparison } from "@/types/data";
 import { generateSectorInsights } from "@/lib/insights-engine";
-import { TrendingDown } from "lucide-react";
+import { generateDetailedSectorAnalysis } from "@/lib/advanced-analytics";
+import type { DetailedInsight } from "@/lib/advanced-analytics";
+import { TrendingDown, ChevronRight } from "lucide-react";
 
 export default function SectionDeclining() {
   const { data: declining } = usePacaData<SectorChange[]>(
     "declining-sectors.json"
   );
+  const { data: departments } = usePacaData<DepartmentComparison[]>(
+    "departments-comparison.json"
+  );
+
+  const [selectedAnalysis, setSelectedAnalysis] = useState<DetailedInsight | null>(null);
 
   const growthData =
     declining?.map((s) => ({ name: s.label, change: s.change })) ?? [];
@@ -29,8 +38,26 @@ export default function SectionDeclining() {
   // Générer les insights automatiques
   const insights = declining ? generateSectorInsights(declining, "declining") : [];
 
+  // Fonction pour ouvrir l'analyse détaillée
+  const openDetailedAnalysis = (sector: SectorChange) => {
+    if (!declining || !departments) return;
+
+    const analysis = generateDetailedSectorAnalysis(
+      sector,
+      declining,
+      departments
+    );
+    setSelectedAnalysis(analysis);
+  };
+
   return (
-    <Section id="section-3" theme="light">
+    <>
+      <DetailedAnalysisPanel
+        insight={selectedAnalysis}
+        onClose={() => setSelectedAnalysis(null)}
+      />
+
+      <Section id="section-3" theme="light">
       <TransitionWrapper>
         <div className="flex items-center gap-3 mb-2">
           <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center">
@@ -88,7 +115,11 @@ export default function SectionDeclining() {
         <TransitionWrapper delay={0.6}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
             {declining.map((sector) => (
-              <Card key={sector.sector} className="text-center">
+              <Card
+                key={sector.sector}
+                className="text-center cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                onClick={() => openDetailedAnalysis(sector)}
+              >
                 <p className="text-2xl font-bold font-mono text-accent-decline">
                   {sector.change > 0 ? "+" : ""}
                   {sector.change}%
@@ -100,11 +131,16 @@ export default function SectionDeclining() {
                   {Math.abs(sector.absoluteChange).toLocaleString("fr-FR")}{" "}
                   emplois perdus
                 </p>
+                <div className="mt-3 flex items-center justify-center gap-1 text-xs text-accent-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>Analyse détaillée</span>
+                  <ChevronRight className="w-3 h-3" />
+                </div>
               </Card>
             ))}
           </div>
         </TransitionWrapper>
       )}
-    </Section>
+      </Section>
+    </>
   );
 }
