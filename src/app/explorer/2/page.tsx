@@ -133,9 +133,9 @@ export default function BrutalMapExplorer() {
         </aside>
 
         {/* Map Container */}
-        <div className="flex-1 relative">
+        <div className="flex-1 relative min-h-[600px]">
           <div className="absolute inset-0 p-6">
-            <div className="brutal-card h-full overflow-hidden relative">
+            <div className="brutal-card h-full overflow-hidden relative" style={{ minHeight: '500px' }}>
               {/* Corner HUD */}
               <div className="absolute top-6 left-6 z-10">
                 <div className="brutal-card bg-[var(--brutal-yellow)] p-3">

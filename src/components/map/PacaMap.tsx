@@ -38,7 +38,7 @@ export default function PacaMap({
   choropleth,
 }: PacaMapProps) {
   return (
-    <div className={cn("relative", className)}>
+    <div className={cn("relative w-full h-full", className)}>
       <PacaMapClient
         zoom={zoom}
         interactive={interactive}

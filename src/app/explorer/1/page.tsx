@@ -147,9 +147,9 @@ export default function DataMapExplorer() {
         </aside>
 
         {/* Map Container */}
-        <div className="flex-1 relative">
+        <div className="flex-1 relative min-h-[600px]">
           <div className="absolute inset-0 p-6">
-            <div className="data-card h-full overflow-hidden relative">
+            <div className="data-card h-full overflow-hidden relative" style={{ minHeight: '500px' }}>
               {/* Corner Info */}
               <div className="absolute top-6 left-6 z-10">
                 <div className="data-card bg-white/95 backdrop-blur p-3">
