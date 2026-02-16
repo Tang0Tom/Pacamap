@@ -1,137 +1,274 @@
-import "../../styles/atlas.css";
+import "../../styles/data-dashboard.css";
 import Link from "next/link";
-import { ArrowRight, MapPin, TrendingDown, TrendingUp, Users } from "lucide-react";
+import { BarChart3, Map, TrendingDown, TrendingUp, Users, Database, ArrowRight, Activity } from "lucide-react";
 
-export default function AtlasHome() {
+export default function DataDashboard() {
+  const departments = [
+    { code: "04", name: "Alpes-de-Haute-Provence", emplois: 42000, evolution: -2.1 },
+    { code: "05", name: "Hautes-Alpes", emplois: 38000, evolution: 1.3 },
+    { code: "06", name: "Alpes-Maritimes", emplois: 412000, evolution: 4.2 },
+    { code: "13", name: "Bouches-du-Rhône", emplois: 742000, evolution: 5.8 },
+    { code: "83", name: "Var", emplois: 370000, evolution: 3.5 },
+    { code: "84", name: "Vaucluse", emplois: 238000, evolution: 2.7 },
+  ];
+
   return (
-    <div className="atlas-page min-h-screen relative z-10">
-      {/* Header ornement */}
-      <header className="border-b-2 border-[var(--atlas-sepia)] bg-[var(--atlas-paper)] sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div>
-            <h1 className="atlas-heading text-2xl">MapStory PACA</h1>
-            <p className="atlas-numero text-xs mt-1">Atlas Économique • 2008-2022</p>
+    <div className="data-page">
+      {/* Header */}
+      <header className="bg-white border-b border-[var(--data-border)] sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="data-heading text-2xl">MapStory PACA</h1>
+              <p className="data-body text-sm">Dashboard Analytique • Emploi Salarié 2008-2022</p>
+            </div>
+            <nav className="flex gap-6">
+              <Link href="/1" className="data-body text-sm font-semibold hover:text-[var(--data-primary)] transition-colors">
+                Dashboard
+              </Link>
+              <Link href="/explorer/1" className="data-body text-sm font-semibold hover:text-[var(--data-primary)] transition-colors">
+                Carte Interactive
+              </Link>
+              <Link href="/sources" className="data-body text-sm font-semibold hover:text-[var(--data-primary)] transition-colors">
+                Sources
+              </Link>
+            </nav>
           </div>
-          <nav className="flex gap-6">
-            <Link href="/1" className="atlas-body text-sm hover:text-[var(--atlas-burgundy)] transition-colors">
-              Atlas
-            </Link>
-            <Link href="/explorer/1" className="atlas-body text-sm hover:text-[var(--atlas-burgundy)] transition-colors">
-              Cartographie
-            </Link>
-            <Link href="/sources" className="atlas-body text-sm hover:text-[var(--atlas-burgundy)] transition-colors">
-              Sources
-            </Link>
-          </nav>
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="max-w-6xl mx-auto px-6 py-20 relative">
-        <span className="atlas-chapter-numero">I</span>
-        <div className="relative z-10">
-          <p className="atlas-numero text-sm mb-4">CHAPITRE PREMIER</p>
-          <h2 className="atlas-heading text-6xl md:text-8xl mb-6">
-            Chronique d'une<br />
-            Mutation Économique
-          </h2>
-          <p className="atlas-body max-w-2xl mb-8">
-            De la crise financière de 2008 à la pandémie mondiale, plongée dans quinze années
-            de transformations profondes du tissu économique provençal. Un récit cartographique
-            où les données racontent l'histoire des hommes et des territoires.
-          </p>
-          <button className="atlas-button">
-            Commencer la Lecture
-            <ArrowRight className="inline-block ml-2 w-4 h-4" />
-          </button>
-        </div>
-
-        <div className="atlas-divider my-16"></div>
-
-        {/* Stats ornementales */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-          <div className="atlas-card p-8 text-center">
-            <Users className="w-12 h-12 mx-auto mb-4 text-[var(--atlas-navy)]" strokeWidth={1.5} />
-            <p className="atlas-numero text-4xl mb-2">1,84M</p>
-            <p className="atlas-body text-sm">Emplois Salariés en PACA</p>
-          </div>
-          <div className="atlas-card p-8 text-center">
-            <TrendingDown className="w-12 h-12 mx-auto mb-4 text-[var(--atlas-burgundy)]" strokeWidth={1.5} />
-            <p className="atlas-numero text-4xl mb-2">-76K</p>
-            <p className="atlas-body text-sm">Emplois Perdus (Secteurs en Déclin)</p>
-          </div>
-          <div className="atlas-card p-8 text-center">
-            <TrendingUp className="w-12 h-12 mx-auto mb-4 text-[var(--atlas-teal)]" strokeWidth={1.5} />
-            <p className="atlas-numero text-4xl mb-2">+158K</p>
-            <p className="atlas-body text-sm">Emplois Créés (Secteurs Émergents)</p>
+      {/* Hero Section */}
+      <section className="bg-gradient-to-b from-white to-[var(--data-bg)] py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="data-status-dot active"></span>
+              <span className="data-label">Données en temps réel</span>
+            </div>
+            <h2 className="data-heading text-5xl md:text-6xl mb-6">
+              Analyse Économique<br />
+              Région PACA
+            </h2>
+            <p className="data-body text-lg mb-8">
+              Dashboard analytique pour suivre l'évolution de l'emploi salarié en région
+              Provence-Alpes-Côte d'Azur. Visualisez les tendances, comparez les départements
+              et explorez 15 ans de données économiques (2008-2022).
+            </p>
+            <div className="flex gap-4">
+              <Link href="/explorer/1" className="data-button data-button-primary">
+                <Map className="w-5 h-5" />
+                Explorer la Carte
+              </Link>
+              <Link href="/sources" className="data-button data-button-secondary">
+                <Database className="w-5 h-5" />
+                Sources de Données
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Sommaire */}
-      <section className="bg-gradient-to-b from-[var(--atlas-paper)] to-[#EDE9DC] py-20">
-        <div className="max-w-4xl mx-auto px-6">
-          <p className="atlas-numero text-sm mb-4 text-center">SOMMAIRE</p>
-          <h3 className="atlas-heading text-4xl mb-12 text-center">Les Chapitres de l'Atlas</h3>
+      {/* KPIs Section */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <div className="mb-6">
+          <h3 className="data-subheading text-xl mb-2">Indicateurs Clés</h3>
+          <p className="data-body">Vue d'ensemble régionale • Données 2022</p>
+        </div>
 
-          <div className="space-y-6">
-            {[
-              { num: "I", title: "Vue d'Ensemble Régionale", desc: "Portrait statistique de PACA en 2022" },
-              { num: "II", title: "Quinze Ans de Mutations", desc: "Analyse chronologique 2008-2022" },
-              { num: "III", title: "Les Métiers Qui Disparaissent", desc: "Agriculture, Industrie, Construction" },
-              { num: "IV", title: "Les Métiers Qui Émergent", desc: "Services, Numérique, Santé" },
-              { num: "V", title: "Disparités Territoriales", desc: "Contrastes entre départements" },
-              { num: "VI", title: "Cartographie Interactive", desc: "Explorer les données par territoire" },
-            ].map((chapter, i) => (
-              <div
-                key={i}
-                className="atlas-card p-6 hover:shadow-xl transition-all duration-500 cursor-pointer group"
-              >
-                <div className="flex items-start gap-6">
-                  <span className="atlas-heading text-5xl text-[var(--atlas-ochre)] opacity-60 group-hover:opacity-100 transition-opacity">
-                    {chapter.num}
-                  </span>
-                  <div className="flex-1">
-                    <h4 className="atlas-subheading text-xl mb-1">{chapter.title}</h4>
-                    <p className="atlas-body text-sm text-[var(--atlas-sepia)]">{chapter.desc}</p>
-                  </div>
-                  <ArrowRight className="w-6 h-6 text-[var(--atlas-burgundy)] opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
+        <div className="data-grid-4">
+          <div className="data-metric-card">
+            <div className="flex items-start justify-between mb-3">
+              <Users className="w-8 h-8 text-[var(--data-primary)]" />
+              <span className="data-badge data-badge-info">2022</span>
+            </div>
+            <p className="data-metric text-3xl mb-1">1,84M</p>
+            <p className="data-label">Total Emplois</p>
+          </div>
+
+          <div className="data-metric-card success">
+            <div className="flex items-start justify-between mb-3">
+              <TrendingUp className="w-8 h-8 text-[var(--data-success)]" />
+              <span className="data-badge data-badge-success">+8.8%</span>
+            </div>
+            <p className="data-metric text-3xl mb-1">+158K</p>
+            <p className="data-label">Emplois Créés</p>
+          </div>
+
+          <div className="data-metric-card danger">
+            <div className="flex items-start justify-between mb-3">
+              <TrendingDown className="w-8 h-8 text-[var(--data-danger)]" />
+              <span className="data-badge data-badge-danger">-4.1%</span>
+            </div>
+            <p className="data-metric text-3xl mb-1">-76K</p>
+            <p className="data-label">Emplois Perdus</p>
+          </div>
+
+          <div className="data-metric-card">
+            <div className="flex items-start justify-between mb-3">
+              <Activity className="w-8 h-8 text-[var(--data-primary)]" />
+              <span className="data-badge data-badge-info">Variation Nette</span>
+            </div>
+            <p className="data-metric text-3xl mb-1">+82K</p>
+            <p className="data-label">Solde 2008-2022</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Departments Table */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <div className="mb-6">
+          <h3 className="data-subheading text-xl mb-2">Analyse Départementale</h3>
+          <p className="data-body">Répartition et évolution par département</p>
+        </div>
+
+        <div className="data-card">
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>Département</th>
+                <th>Code</th>
+                <th className="text-right">Emplois</th>
+                <th className="text-right">Évolution</th>
+                <th>Tendance</th>
+              </tr>
+            </thead>
+            <tbody>
+              {departments.map((dept) => (
+                <tr key={dept.code}>
+                  <td className="font-semibold">{dept.name}</td>
+                  <td>
+                    <span className="data-mono text-xs">{dept.code}</span>
+                  </td>
+                  <td className="text-right">
+                    <span className="data-metric text-sm">
+                      {dept.emplois.toLocaleString('fr-FR')}
+                    </span>
+                  </td>
+                  <td className="text-right">
+                    <span className={`font-semibold ${dept.evolution > 0 ? 'text-[var(--data-success)]' : 'text-[var(--data-danger)]'}`}>
+                      {dept.evolution > 0 ? '+' : ''}{dept.evolution}%
+                    </span>
+                  </td>
+                  <td>
+                    <div className="data-progress">
+                      <div
+                        className="data-progress-bar"
+                        style={{ width: `${Math.abs(dept.evolution) * 10}%` }}
+                      ></div>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Sectors Overview */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <div className="mb-6">
+          <h3 className="data-subheading text-xl mb-2">Évolution Sectorielle</h3>
+          <p className="data-body">Transformations économiques 2008-2022</p>
+        </div>
+
+        <div className="data-grid-2">
+          {/* Declining Sectors */}
+          <div className="data-card">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center">
+                <TrendingDown className="w-6 h-6 text-[var(--data-danger)]" />
               </div>
-            ))}
+              <div>
+                <h4 className="data-subheading text-lg">Secteurs en Déclin</h4>
+                <p className="data-body text-sm">3 secteurs impactés</p>
+              </div>
+            </div>
+            <div className="space-y-3">
+              {[
+                { name: "Agriculture", loss: -36.4, jobs: -8100 },
+                { name: "Industrie", loss: -21.7, jobs: -42900 },
+                { name: "Construction", loss: -11.3, jobs: -25500 },
+              ].map((sector) => (
+                <div key={sector.name} className="flex items-center justify-between p-3 bg-[var(--data-bg)] rounded-lg">
+                  <div>
+                    <p className="font-semibold text-sm">{sector.name}</p>
+                    <p className="data-body text-xs">{sector.jobs.toLocaleString('fr-FR')} emplois</p>
+                  </div>
+                  <span className="data-badge data-badge-danger">
+                    {sector.loss}%
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Growing Sectors */}
+          <div className="data-card">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center">
+                <TrendingUp className="w-6 h-6 text-[var(--data-success)]" />
+              </div>
+              <div>
+                <h4 className="data-subheading text-lg">Secteurs en Croissance</h4>
+                <p className="data-body text-sm">3 secteurs dynamiques</p>
+              </div>
+            </div>
+            <div className="space-y-3">
+              {[
+                { name: "Services", growth: 22.1, jobs: 98400 },
+                { name: "Commerce", growth: -2.9, jobs: -10800 },
+                { name: "Administration", growth: 18.9, jobs: 70700 },
+              ].map((sector) => (
+                <div key={sector.name} className="flex items-center justify-between p-3 bg-[var(--data-bg)] rounded-lg">
+                  <div>
+                    <p className="font-semibold text-sm">{sector.name}</p>
+                    <p className="data-body text-xs">{Math.abs(sector.jobs).toLocaleString('fr-FR')} emplois</p>
+                  </div>
+                  <span className={`data-badge ${sector.growth > 0 ? 'data-badge-success' : 'data-badge-danger'}`}>
+                    {sector.growth > 0 ? '+' : ''}{sector.growth}%
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="atlas-card p-12 text-center relative overflow-hidden">
-          <MapPin className="w-32 h-32 absolute -top-8 -right-8 text-[var(--atlas-ochre)] opacity-10" />
-          <h3 className="atlas-heading text-4xl mb-4 relative z-10">Explorer la Cartographie</h3>
-          <p className="atlas-body max-w-2xl mx-auto mb-8 relative z-10">
-            Découvrez les données département par département sur une carte interactive
-            au style atlas classique réinterprété.
-          </p>
-          <Link href="/explorer/1" className="atlas-button inline-block">
-            Accéder à la Carte
-          </Link>
+      {/* CTA Map */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="data-card bg-gradient-to-br from-[var(--data-primary)] to-[var(--data-secondary)] text-white border-none">
+          <div className="text-center max-w-2xl mx-auto">
+            <BarChart3 className="w-16 h-16 mx-auto mb-6 opacity-80" />
+            <h3 className="text-4xl font-bold mb-4">Explorez la Carte Interactive</h3>
+            <p className="text-white/90 mb-8 text-lg">
+              Visualisez les données département par département avec notre carte choroplèthe interactive.
+            </p>
+            <Link
+              href="/explorer/1"
+              className="inline-flex items-center gap-2 bg-white text-[var(--data-primary)] px-8 py-4 rounded-lg font-bold hover:shadow-xl transition-all"
+            >
+              Accéder à la Carte
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Footer ornement */}
-      <footer className="border-t-2 border-[var(--atlas-sepia)] bg-[var(--atlas-paper)] py-8">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="atlas-numero text-xs">
-            MapStory PACA — Atlas Économique Régional • Données INSEE & DARES 2008-2022
-          </p>
-          <div className="flex justify-center gap-4 mt-4">
-            <Link href="/sources" className="atlas-body text-xs hover:text-[var(--atlas-burgundy)]">
-              Sources & Méthodologie
-            </Link>
-            <span className="text-[var(--atlas-sepia)]">•</span>
-            <Link href="/2" className="atlas-body text-xs hover:text-[var(--atlas-burgundy)]">
-              Version Dashboard
-            </Link>
+      {/* Footer */}
+      <footer className="border-t border-[var(--data-border)] bg-white py-8 mt-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="data-body text-sm">
+              MapStory PACA © 2024 • Sources : INSEE FLORES & DARES
+            </p>
+            <div className="flex gap-6">
+              <Link href="/sources" className="data-body text-sm hover:text-[var(--data-primary)] transition-colors">
+                Sources & Méthodologie
+              </Link>
+              <Link href="/2" className="data-body text-sm hover:text-[var(--data-primary)] transition-colors">
+                Version Alternative
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
