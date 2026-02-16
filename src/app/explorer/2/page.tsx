@@ -4,6 +4,10 @@ import "../../../styles/brutal.css";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { ArrowLeft, MapPin, Zap, Download } from "lucide-react";
+import { usePacaData } from "@/hooks/usePacaData";
+import { CHOROPLETH_BLUES } from "@/lib/colors";
+import type { PacaOverview } from "@/types/data";
+import type { GeoJSONCollection, GeoJSONFeature } from "@/types/geo";
 
 const PacaMap = dynamic(() => import("@/components/map/PacaMap"), {
   ssr: false,
@@ -18,6 +22,8 @@ const PacaMap = dynamic(() => import("@/components/map/PacaMap"), {
 });
 
 export default function BrutalMapExplorer() {
+  const { data: overview } = usePacaData<PacaOverview>("paca-overview.json");
+  const { data: geoData } = usePacaData<GeoJSONCollection>("geo/departements.json");
   const departments = [
     { code: "04", name: "Alpes-de-Haute-Provence", emplois: "42K", color: "cyan" },
     { code: "05", name: "Hautes-Alpes", emplois: "38K", color: "yellow" },
@@ -190,7 +196,19 @@ export default function BrutalMapExplorer() {
               <div className="brutal-shape brutal-shape-circle w-16 h-16 top-1/4 right-1/4 bg-[var(--brutal-yellow)] opacity-20 z-0"></div>
               <div className="brutal-shape brutal-shape-circle w-12 h-12 bottom-1/3 left-1/3 bg-[var(--brutal-magenta)] opacity-20 z-0"></div>
 
-              <PacaMap />
+              {geoData && overview && (
+                <PacaMap
+                  interactive
+                  choropleth={{
+                    data: geoData,
+                    valueAccessor: (f: GeoJSONFeature) =>
+                      overview.departments.find((d) => d.code === f.properties.code)?.employment ?? 0,
+                    min: 38000,
+                    max: 742000,
+                    scale: CHOROPLETH_BLUES,
+                  }}
+                />
+              )}
             </div>
           </div>
         </div>
