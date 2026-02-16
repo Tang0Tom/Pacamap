@@ -1,0 +1,63 @@
+{
+  "year": 2022,
+  "france": {
+    "totalEmployment": 19500000,
+    "unemploymentRate": 7.3,
+    "sectors": {
+      "agriculture": {
+        "employment": 800000,
+        "change": -28.5
+      },
+      "industrie": {
+        "employment": 3200000,
+        "change": -19.2
+      },
+      "construction": {
+        "employment": 1450000,
+        "change": -12.1
+      },
+      "commerce": {
+        "employment": 3600000,
+        "change": -8.7
+      },
+      "services": {
+        "employment": 7800000,
+        "change": 18.3
+      },
+      "public": {
+        "employment": 2650000,
+        "change": 9.8
+      }
+    }
+  },
+  "paca": {
+    "totalEmployment": 1842000,
+    "unemploymentRate": 8.9,
+    "sectors": {
+      "agriculture": {
+        "employment": 35000,
+        "change": -36.4
+      },
+      "industrie": {
+        "employment": 128200,
+        "change": -22.3
+      },
+      "construction": {
+        "employment": 92000,
+        "change": -15.8
+      },
+      "commerce": {
+        "employment": 284000,
+        "change": -11.2
+      },
+      "services": {
+        "employment": 588000,
+        "change": 22.4
+      },
+      "public": {
+        "employment": 315000,
+        "change": 12.1
+      }
+    }
+  }
+}

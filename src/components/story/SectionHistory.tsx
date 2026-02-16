@@ -5,8 +5,10 @@ import TransitionWrapper from "@/components/ui/TransitionWrapper";
 import TimeSeriesChart from "@/components/charts/TimeSeriesChart";
 import DonutChart from "@/components/charts/DonutChart";
 import Card from "@/components/ui/Card";
+import InsightCard from "@/components/story/InsightCard";
 import { usePacaData } from "@/hooks/usePacaData";
 import type { SectorTimeSeries } from "@/types/data";
+import { generateTrendInsights } from "@/lib/insights-engine";
 
 export default function SectionHistory() {
   const { data: timeSeries } = usePacaData<SectorTimeSeries[]>(
@@ -22,6 +24,9 @@ export default function SectionHistory() {
     { name: "Agriculture", value: 55000 },
   ];
 
+  // Générer les insights sur les tendances temporelles
+  const insights = timeSeries ? generateTrendInsights(timeSeries) : [];
+
   return (
     <Section id="section-2" theme="light">
       <TransitionWrapper>
@@ -34,6 +39,17 @@ export default function SectionHistory() {
           significative.
         </p>
       </TransitionWrapper>
+
+      {/* Insights sur les ruptures historiques */}
+      {insights.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          {insights.map((insight, idx) => (
+            <TransitionWrapper key={idx} delay={0.1 + idx * 0.1}>
+              <InsightCard insight={insight} />
+            </TransitionWrapper>
+          ))}
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <TransitionWrapper delay={0.2}>

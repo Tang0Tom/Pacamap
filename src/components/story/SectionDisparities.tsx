@@ -4,9 +4,11 @@ import Section from "./Section";
 import TransitionWrapper from "@/components/ui/TransitionWrapper";
 import SectorBarChart from "@/components/charts/SectorBarChart";
 import Card from "@/components/ui/Card";
+import InsightCard from "@/components/story/InsightCard";
 import SourceBadge from "@/components/ui/SourceBadge";
 import { usePacaData } from "@/hooks/usePacaData";
 import type { DepartmentComparison } from "@/types/data";
+import { generateDepartmentInsights } from "@/lib/insights-engine";
 import { ArrowLeftRight } from "lucide-react";
 
 export default function SectionDisparities() {
@@ -29,6 +31,9 @@ export default function SectionDisparities() {
   const sorted = departments ? [...departments].sort((a, b) => b.totalEmployment - a.totalEmployment) : [];
   const biggest = sorted[0];
   const smallest = sorted[sorted.length - 1];
+
+  // Générer les insights sur les disparités départementales
+  const insights = departments ? generateDepartmentInsights(departments) : [];
 
   return (
     <Section id="section-5" theme="light">
@@ -76,6 +81,17 @@ export default function SectionDisparities() {
             </Card>
           </div>
         </TransitionWrapper>
+      )}
+
+      {/* Insights sur les disparités territoriales */}
+      {insights.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          {insights.slice(0, 3).map((insight, idx) => (
+            <TransitionWrapper key={idx} delay={0.15 + idx * 0.1}>
+              <InsightCard insight={insight} />
+            </TransitionWrapper>
+          ))}
+        </div>
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

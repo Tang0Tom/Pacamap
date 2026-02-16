@@ -5,8 +5,10 @@ import TransitionWrapper from "@/components/ui/TransitionWrapper";
 import GrowthChart from "@/components/charts/GrowthChart";
 import TimeSeriesChart from "@/components/charts/TimeSeriesChart";
 import Card from "@/components/ui/Card";
+import InsightCard from "@/components/story/InsightCard";
 import { usePacaData } from "@/hooks/usePacaData";
 import type { SectorChange } from "@/types/data";
+import { generateSectorInsights } from "@/lib/insights-engine";
 import { TrendingDown } from "lucide-react";
 
 export default function SectionDeclining() {
@@ -23,6 +25,9 @@ export default function SectionDeclining() {
       label: s.label,
       data: s.trend,
     })) ?? [];
+
+  // Générer les insights automatiques
+  const insights = declining ? generateSectorInsights(declining, "declining") : [];
 
   return (
     <Section id="section-3" theme="light">
@@ -41,6 +46,17 @@ export default function SectionDeclining() {
           profonde du tissu économique régional.
         </p>
       </TransitionWrapper>
+
+      {/* Insights automatiques - Contextualisation */}
+      {insights.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          {insights.slice(0, 2).map((insight, idx) => (
+            <TransitionWrapper key={idx} delay={0.1 + idx * 0.1}>
+              <InsightCard insight={insight} />
+            </TransitionWrapper>
+          ))}
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <TransitionWrapper delay={0.2}>
